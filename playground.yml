@@ -1,0 +1,30 @@
+title: Fffocus
+
+#### Uncomment property to enable the feature you want
+
+html:
+  #### Available - ejs, jade
+  #### To use ejs
+  # preprocessor: ejs
+
+js:
+  #### Available - babel, coffeescript, typescript
+  # preprocessor: babel
+
+  #### These scripts will be added in appearance order and before the your js
+  # external:
+  #   - 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js'
+
+css:
+  #### Available - scss, less, stylus
+  # preprocessor: scss
+
+  #### Available - autoprefixer
+  # vender_prefixing: autoprefixer
+
+  #### Available - reset, normalize
+  # base: reset
+
+  #### These stylesheets will be added in appearance order and before the your css
+  # external:
+  #   - 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'
