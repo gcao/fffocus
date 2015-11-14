@@ -34,7 +34,7 @@ function stop() {
 }
 
 function finish() {
-  numberElem.innerHTML = "";
+  stop();
   checkResult();
 }
 

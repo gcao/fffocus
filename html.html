@@ -1,4 +1,4 @@
-<div style="margin-top:100px;margin-left:200px;">
+<div style="display:inline-block;text-align:left;vertical-align:middle;">
   <h1>
     Focus now!
   </h1>
@@ -15,7 +15,7 @@
       <option value="45">45 minutes</option>
       <option value="60">60 minutes</option>
     </select>
-    &nbsp;&nbsp;<input type="button" onclick="start()" value="Start"></input>
+    &nbsp;&nbsp;<input type="button" onclick="start()" value="Start"/>
     <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="resume()" value="Resume"></input>-->
     <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="pause()" value="Pause"></input>-->
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -24,13 +24,14 @@
   <div id="number" style="height:25px; font-size:large">Number will appear here</div>
   <br/>
   <br/>
-  Record numbers in below box (separated by space, tab, comma or new line)
+  Record numbers in the box below (separated by space, comma or new line)
   <div>
-    <textarea cols="80" rows="15"></textarea>
+    <textarea rows="15" style="width: 99%"></textarea>
   </div>
   <br/>
   <div id="check-result">
-    <input type="button" onclick="checkResult()" value="Check Result">
+    <!--<input type="button" onclick="checkResult()" value="Check Result">-->
+    After the session is over, your score will be displayed below.
     <br/>
     <div id="result" style="display:none;">
       Your score is <strong id="score"></strong> !
