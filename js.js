@@ -17,6 +17,7 @@ function start() {
   stop();
   finished                 = false;
   startTime                = new Date();
+  sessionLength            = Number(document.querySelector('select').value)*60;
   generated                = [];
   recordingElem.value      = "";
   resultElem.style.display = "none";
@@ -93,15 +94,14 @@ function updateDuration() {
 
     if (finished) return;
 
-    var duration = new Date() - startTime;
-    if (duration > Number(document.querySelector('select').value)*60*1000) {
+    var duration = sessionLength + (startTime - new Date())/1000;
+    if (duration <= 0) {
       finished = true;
       finish();
       return;
     }
 
-    var now = new Date();
-    var secs = Math.round((now - startTime) / 1000);
+    var secs = Math.round(duration);
     var mins = Math.floor(secs / 60);
     secs -= mins * 60;
 
