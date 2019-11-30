@@ -1,8 +1,8 @@
-# Fffocus
+# fffocus
 
 ## Introduction
 
-Fffocus is a simple HTML page that helps you to clear your mind before working on something, or to increase your attention span by practicing.
+fffocus is a simple tool that helps you clear your mind before starting your work, or increases your attention span by practicing regularly.
 
 [Try it here](http://gcao.github.io/fffocus)
 
@@ -10,10 +10,9 @@ Fffocus is a simple HTML page that helps you to clear your mind before working o
 
 1. Select the length of the session
 1. Click "Start"
-1. Pay attention to the number that is displayed
-1. Record it in the text area, separated by space, comma or line break
-1. The session will end when clock hit 0 seconds
-1. The score (percentage of numbers recorded correctly) will auto displayed
+1. Until the session ends, pay attention to the number that is displayed after a short wait time, record it in the text area, separated by space, comma or line break
+1. The session will end when the countdown clock hits 0 seconds
+1. The score (percentage of numbers recorded correctly) will be displayed
 
 ## Tasks
 
