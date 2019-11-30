@@ -3,55 +3,56 @@
   <head>
     <meta charset="utf-8">
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-    <title>Fffocus</title>
-    
-    
+    <title>fffocus</title>
     <link rel="stylesheet" href="css.css">
   </head>
   <body>
 
     <div style="display:inline-block;text-align:left;vertical-align:middle;">
-  <h1>
-    Focus now!
-  </h1>
-  <br/>
-  <div style="height:25px;">
-    Session length:
-    <select>
-      <option selected value="3">3 minutes</option>
-      <option value="5">5 minutes</option>
-      <option value="10">10 minutes</option>
-      <option value="15">15 minutes</option>
-      <option value="20">20 minutes</option>
-      <option value="30">30 minutes</option>
-      <option value="45">45 minutes</option>
-      <option value="60">60 minutes</option>
-    </select>
-    &nbsp;&nbsp;<input type="button" onclick="start()" value="Start"/>
-    <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="resume()" value="Resume"></input>-->
-    <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="pause()" value="Pause"></input>-->
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    Time left: <span id="duration">0:00</span></div>
-  <br/>
-  <div id="number" style="height:25px; font-size:large">Number will appear here</div>
-  <br/>
-  <br/>
-  Record numbers in the box below (separated by space, comma or new line)
-  <div>
-    <textarea rows="15" style="width: 99%"></textarea>
-  </div>
-  <br/>
-  <div id="check-result">
-    <!--<input type="button" onclick="checkResult()" value="Check Result">-->
-    After the session is over, your score will be displayed below.
-    <br/>
-    <div id="result" style="display:none;">
-      Your score is <strong id="score"></strong> !
+      <h1>
+        Increase Your Attention Span
+      </h1>
+      <br/>
+      <div style="line-height:30px;">
+        Session length:
+        <select id="session" name="session">
+          <option value="1">1 minute</option>
+          <option selected value="3">3 minutes</option>
+          <option value="5">5 minutes</option>
+          <option value="10">10 minutes</option>
+          <option value="15">15 minutes</option>
+          <option value="20">20 minutes</option>
+          <option value="25">25 minutes</option>
+          <option value="30">30 minutes</option>
+          <option value="40">40 minutes</option>
+          <option value="50">50 minutes</option>
+          <option value="60">60 minutes</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        Time left: <span id="timeLeft"></span>
+        <br/>
+        <input type="button" onclick="start()" value="Start the training!"/>
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="resume()" value="Resume"></input>-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="pause()" value="Pause"></input>-->
+      </div>
+      <br/>
+      <div id="number" style="height:25px; font-size:large">Number will appear here</div>
+      <br/>
+      <br/>
+      Record numbers in the box below (separated by space, comma or new line)
+      <div>
+        <textarea id="recorded" name="values" rows="15" style="width: 99%"></textarea>
+      </div>
+      <br/>
+      <div id="check-result">
+        <!--<input type="button" onclick="checkResult()" value="Check Result">-->
+        After the session is over, your score will be displayed below.
+        <br/>
+        <div id="result" style="display:none;">
+          Your score is <strong id="score"></strong> !
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
     
     <script src="js.js"></script>
   </body>

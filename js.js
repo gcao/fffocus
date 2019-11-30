@@ -1,17 +1,31 @@
 var NUMBER_VISIBLE_TIME = 2000;
-var WAIT_BASE           = 5000;
-var WAIT_VARIANCE       = 4000;
+var WAIT_BASE           = 4000;
+var WAIT_VARIANCE       = 7000;
 
 var startTime;
 var finished;
 var sessionLength;
+var timeLeft;
 var generated     = [];
 var timeoutRef    = null;
 var numberElem    = document.querySelector('#number');
-var recordingElem = document.querySelector('textarea');
+var recordedElem  = document.querySelector('#recorded');
 var resultElem    = document.querySelector('#result');
 var scoreElem     = document.querySelector('#score');
-var durationElem  = document.querySelector('#duration');
+var timeLeftElem  = document.querySelector('#timeLeft');
+
+function getUrlVars() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    vars[key] = value;
+  });
+  return vars;
+}
+
+var session = getUrlVars()['session'];
+if (session) {
+  document.querySelector('#session').value = session;
+}
 
 function start() {
   stop();
@@ -19,11 +33,21 @@ function start() {
   startTime                = new Date();
   sessionLength            = Number(document.querySelector('select').value)*60;
   generated                = [];
-  recordingElem.value      = "";
+  recordedElem.value      = "";
   resultElem.style.display = "none";
-  recordingElem.focus();
+  recordedElem.focus();
   updateNumber();
 }
+
+// Pause / resume logic:
+// * Hide both pause/resume when session has not started or has finished
+// * Show pause when a session is going on
+// * Hide pause and show resume if session is paused
+//function pause() {
+//  if (timeoutRef) {
+//    clearTimeout(timeoutRef);
+//  }
+//}
 
 //function resume() {
 //  updateNumber();
@@ -42,6 +66,9 @@ function finish() {
 function updateNumber() {
   timeoutRef = setTimeout(function() {
     if (finished) return;
+
+    // Stop because there is not enough time to enter the number
+    if (timeLeft <= 3) return;
 
     var number = Math.floor(Math.random()*100);
     // Avoid duplication
@@ -62,7 +89,7 @@ function updateNumber() {
 }
 
 function checkResult() {
-  var recorded = recordingElem.value.trim().split(/[\s,]/);
+  var recorded = recordedElem.value.trim().split(/[\s,]/);
   var matched = 0;
   var indexInExpected = 0;
 
@@ -88,28 +115,28 @@ function checkResult() {
   resultElem.style.display = "block";
 }
 
-function updateDuration() {
+function updateTimeLeft() {
   setInterval(function() {
     if (!startTime) return;
 
     if (finished) return;
 
-    var duration = sessionLength + (startTime - new Date())/1000;
-    if (duration <= 0) {
+    timeLeft = sessionLength - (new Date() - startTime)/1000;
+    if (timeLeft <= 0) {
       finished = true;
       finish();
       return;
     }
 
-    var secs = Math.round(duration);
+    var secs = Math.round(timeLeft);
     var mins = Math.floor(secs / 60);
     secs -= mins * 60;
 
     if (secs < 10) secs = "0" + secs;
 
-    durationElem.innerText = mins + ":" + secs;
+    timeLeftElem.innerText = mins + ":" + secs;
   }, 500);
 }
 
-updateDuration();
+updateTimeLeft();
 
