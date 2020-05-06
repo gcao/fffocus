@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-    <title>fffocus</title>
+    <title>fffocus - increase your attention span</title>
     <link rel="stylesheet" href="css.css">
+    <meta name="description" content="fffocus - a simple tool that helps clear your mind before starting your work, or increases your attention span by practicing regularly">
   </head>
   <body>
 
@@ -31,6 +32,8 @@
         </select>
         &nbsp;&nbsp;&nbsp;&nbsp;
         Time left: <span id="timeLeft"></span>
+        <input id="hideTime" type="button" onclick="hideTime()" value="Hide"/>
+        <input id="showTime" type="button" onclick="showTime()" value="Show"/>
         <br/>
         <input type="button" onclick="start()" value="Start!"/>
         <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="resume()" value="Resume"></input>-->

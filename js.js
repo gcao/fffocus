@@ -138,5 +138,17 @@ function updateTimeLeft() {
   }, 500);
 }
 
+function showTime() {
+  document.getElementById('showTime').style.display = "none";
+  document.getElementById('hideTime').style.display = "";
+  document.getElementById('timeLeft').style.display = "";
+}
+
+function hideTime() {
+  document.getElementById('showTime').style.display = "";
+  document.getElementById('hideTime').style.display = "none";
+  document.getElementById('timeLeft').style.display = "none";
+}
+
 updateTimeLeft();
 
