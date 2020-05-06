@@ -36,6 +36,7 @@ function start() {
   recordedElem.value      = "";
   resultElem.style.display = "none";
   recordedElem.focus();
+  showTime();
   updateNumber();
 }
 
