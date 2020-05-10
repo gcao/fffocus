@@ -70,7 +70,7 @@ function updateNumber() {
     // Stop because there is not enough time to enter the number
     if (timeLeft <= 3) return;
 
-    var number = Math.floor(Math.random()*100);
+    var number = Math.floor(Math.random()*90) + 10;
     // Avoid duplication
     while (number === generated[generated.length - 1]) {
       number = Math.floor(Math.random()*100);
