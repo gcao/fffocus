@@ -1,6 +1,7 @@
-var NUMBER_VISIBLE_TIME = 2000;
-var WAIT_BASE           = 4000;
-var WAIT_VARIANCE       = 7000;
+var NUMBER_VISIBLE_TIME =  2000;
+var WAIT_BASE           =  1500;
+var WAIT_VARIANCE       =  5000;
+var TOTAL_TIME          = 10000; // Total time to wait and display a number;
 
 var startTime;
 var finished;
@@ -64,11 +65,11 @@ function finish() {
 }
 
 function updateNumber() {
+  let time1 = Math.random()*WAIT_VARIANCE + WAIT_BASE;
+  let time2 = NUMBER_VISIBLE_TIME;
+  let time3 = TOTAL_TIME - time1 - time2;
   timeoutRef = setTimeout(function() {
     if (finished) return;
-
-    // Stop because there is not enough time to enter the number
-    if (timeLeft <= 3) return;
 
     var number = Math.floor(Math.random()*90) + 10;
     // Avoid duplication
@@ -83,9 +84,12 @@ function updateNumber() {
       if (finished) return;
 
       numberElem.innerHTML = "";
-      updateNumber();
-    }, NUMBER_VISIBLE_TIME);
-  }, Math.random()*WAIT_VARIANCE + WAIT_BASE);
+
+      timeoutRef = setTimeout(function() {
+        updateNumber();
+      }, time3);
+    }, time2);
+  }, time1);
 }
 
 function checkResult() {
@@ -152,4 +156,3 @@ function hideTime() {
 
 updateTimeLeft();
 hideTime();
-
