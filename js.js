@@ -74,7 +74,7 @@ function updateNumber() {
     var number = Math.floor(Math.random()*90) + 10;
     // Avoid duplication
     while (number === generated[generated.length - 1]) {
-      number = Math.floor(Math.random()*100);
+      number = Math.floor(Math.random()*90) + 10;
     }
 
     generated.push(number);
